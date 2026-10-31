@@ -16,6 +16,17 @@ services:
       timeout: 5s
       retries: 10
 
+  adminer:
+    image: adminer:5
+    restart: unless-stopped
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    ports:
+      - "127.0.0.1:${ADMINER_PORT:-8080}:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
   qdrant:
     image: qdrant/qdrant:latest
     restart: unless-stopped
@@ -40,6 +51,11 @@ services:
       - "8000:8000"
     environment:
       QDRANT_URL: http://qdrant:6333
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-rag}
+      POSTGRES_USER: ${POSTGRES_USER:-rag}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-rag_dev_password}
       QDRANT_COLLECTION: rag_documents
       OLLAMA_HOST: http://host.docker.internal:11434
       LLM_MODEL: ${LLM_MODEL:-qwen3:8b}
@@ -48,6 +64,8 @@ services:
     volumes:
       - model_cache:/models
     depends_on:
+      postgres:
+        condition: service_healthy
       qdrant:
         condition: service_healthy
 

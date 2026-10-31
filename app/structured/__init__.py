@@ -1,0 +1,1 @@
+"""Deterministic structured file ingestion."""

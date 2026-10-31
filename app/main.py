@@ -15,6 +15,7 @@ from pydantic import BaseModel, Field
 from starlette.concurrency import run_in_threadpool
 
 from app.config import get_settings
+from app.structured.router import router as structured_router
 from app.rag import RAGService
 from app.schemas import AskRequest, AskResponse, DeleteResponse, IngestResponse, SearchRequest, SearchResponse
 
@@ -119,6 +120,7 @@ app = FastAPI(
     description="Docling ingestion, BGE-M3 + BM25 hybrid retrieval, RRF, and BGE reranking.",
     version="2.0.0",
 )
+app.include_router(structured_router)
 
 
 @lru_cache(maxsize=1)
