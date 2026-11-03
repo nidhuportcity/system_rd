@@ -1,0 +1,15 @@
+Captured: 2026-10-31 13:43 SLST
+Branch: da-najla  Base commit: 6d18f0b (Milestone 1 changes uncommitted at capture time)
+OS: Windows 11 Home 10.0.26200
+Python 3.11.9
+docling                   2.145.0
+docling-core              2.105.0
+docling-parse             7.24.2
+fastapi                   0.162.0
+pypdfium2                 5.14.0
+pytest                    9.2.0
+python-docx               1.2.0
+qdrant-client             1.20.0
+rapidocr                  3.10.0
+reportlab                 4.5.1
+sentence-transformers     5.7.0

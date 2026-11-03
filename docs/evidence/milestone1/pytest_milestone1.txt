@@ -1,0 +1,121 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\DA Najla\Desktop\system_rd\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\DA Najla\Desktop\system_rd
+configfile: pytest.ini
+plugins: anyio-4.15.1, Faker-40.44.0, typeguard-4.6.0
+collecting ... collected 61 items
+
+tests/test_document_parser.py::test_invalid_uploads_are_rejected_without_docling[unsupported_extension] PASSED [  1%]
+tests/test_document_parser.py::test_invalid_uploads_are_rejected_without_docling[no_extension] PASSED [  3%]
+tests/test_document_parser.py::test_invalid_uploads_are_rejected_without_docling[legacy_doc] PASSED [  4%]
+tests/test_document_parser.py::test_invalid_uploads_are_rejected_without_docling[pdf_extension_text_content] PASSED [  6%]
+tests/test_document_parser.py::test_invalid_uploads_are_rejected_without_docling[docx_extension_not_zip] PASSED [  8%]
+tests/test_document_parser.py::test_invalid_uploads_are_rejected_without_docling[docx_zip_without_document] PASSED [  9%]
+tests/test_document_parser.py::test_invalid_uploads_are_rejected_without_docling[txt_with_binary] PASSED [ 11%]
+tests/test_document_parser.py::test_invalid_uploads_are_rejected_without_docling[whitespace_only_txt] PASSED [ 13%]
+tests/test_document_parser.py::test_detect_file_type_accepts_supported_files[report.PDF-%PDF-1.7\n...-pdf] PASSED [ 14%]
+tests/test_document_parser.py::test_detect_file_type_accepts_supported_files[report.pdf-\n\n%PDF-1.4\n...-pdf] PASSED [ 16%]
+tests/test_document_parser.py::test_detect_file_type_accepts_supported_files[notes.txt-hello-txt] PASSED [ 18%]
+tests/test_document_parser.py::test_detect_file_type_accepts_supported_files[notes.md-# Title-md] PASSED [ 19%]
+tests/test_document_parser.py::test_detect_file_type_accepts_supported_files[utf16.txt-\xff\xfeh\x00i\x00-txt] PASSED [ 21%]
+tests/test_document_parser.py::test_decode_text[na\xc3\xafve-na\xefve-utf-8] PASSED [ 22%]
+tests/test_document_parser.py::test_decode_text[\xef\xbb\xbfna\xc3\xafve-na\xefve-utf-8-sig] PASSED [ 24%]
+tests/test_document_parser.py::test_decode_text[\xff\xfen\x00a\x00\xef\x00v\x00e\x00-na\xefve-utf-16] PASSED [ 26%]
+tests/test_document_parser.py::test_decode_text[na\xefve \x93quoted\x94-na\xefve \u201cquoted\u201d-cp1252] PASSED [ 27%]
+tests/test_document_parser.py::test_decode_text[\x81\x8d-\x81\x8d-latin-1] PASSED [ 29%]
+tests/test_document_parser.py::test_normalize_text PASSED                [ 31%]
+tests/test_document_parser.py::test_plain_text_is_not_rewritten_as_markdown PASSED [ 32%]
+tests/test_document_parser.py::test_legacy_encoding_produces_warning PASSED [ 34%]
+tests/test_extraction_metrics.py::test_tokens_ignore_markup_but_keep_word_characters PASSED [ 36%]
+tests/test_extraction_metrics.py::test_word_recall_counts_repeated_words PASSED [ 37%]
+tests/test_extraction_metrics.py::test_word_error_rate PASSED            [ 39%]
+tests/test_extraction_metrics.py::test_reading_order PASSED              [ 40%]
+tests/test_extraction_metrics.py::test_page_accuracy PASSED              [ 42%]
+tests/test_extraction_metrics.py::test_table_cell_recall PASSED          [ 44%]
+tests/test_extraction_metrics.py::test_score_extraction_combines_metrics PASSED [ 45%]
+tests/test_document_ingestion_api.py::test_invalid_uploads_return_client_errors[unsupported_extension] PASSED [ 47%]
+tests/test_document_ingestion_api.py::test_invalid_uploads_return_client_errors[no_extension] PASSED [ 49%]
+tests/test_document_ingestion_api.py::test_invalid_uploads_return_client_errors[legacy_doc] PASSED [ 50%]
+tests/test_document_ingestion_api.py::test_invalid_uploads_return_client_errors[pdf_extension_text_content] PASSED [ 52%]
+tests/test_document_ingestion_api.py::test_invalid_uploads_return_client_errors[docx_extension_not_zip] PASSED [ 54%]
+tests/test_document_ingestion_api.py::test_invalid_uploads_return_client_errors[docx_zip_without_document] PASSED [ 55%]
+tests/test_document_ingestion_api.py::test_invalid_uploads_return_client_errors[txt_with_binary] PASSED [ 57%]
+tests/test_document_ingestion_api.py::test_invalid_uploads_return_client_errors[whitespace_only_txt] PASSED [ 59%]
+tests/test_document_ingestion_api.py::test_parse_errors_return_422 PASSED [ 60%]
+tests/test_document_ingestion_api.py::test_plain_text_reaches_index_unchanged PASSED [ 62%]
+tests/test_document_ingestion_api.py::test_empty_upload_returns_400 PASSED [ 63%]
+tests/test_document_ingestion_api.py::test_oversized_upload_returns_413 PASSED [ 65%]
+tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[txt_simple] PASSED [ 67%]
+tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[txt_markdown_chars] PASSED [ 68%]
+tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[txt_utf8_bom_unicode] PASSED [ 70%]
+tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[txt_cp1252] PASSED [ 72%]
+tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[txt_utf16] PASSED [ 73%]
+tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[docx_headings] PASSED [ 75%]
+tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[docx_table] PASSED [ 77%]
+tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[docx_unicode] PASSED [ 78%]
+tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[pdf_simple] PASSED [ 80%]
+tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[pdf_multipage] PASSED [ 81%]
+tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[pdf_grid_table] PASSED [ 83%]
+tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[pdf_borderless_table] XFAIL [ 85%]
+tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[pdf_two_columns] PASSED [ 86%]
+tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[pdf_side_by_side_lines] XFAIL [ 88%]
+tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[pdf_scanned] PASSED [ 90%]
+tests/test_extraction_accuracy.py::test_unparseable_documents_raise_client_errors[corrupt_pdf] PASSED [ 91%]
+tests/test_extraction_accuracy.py::test_unparseable_documents_raise_client_errors[encrypted_pdf] PASSED [ 93%]
+tests/test_extraction_accuracy.py::test_unparseable_documents_raise_client_errors[blank_pdf] Windows fatal exception: access violation
+
+Thread 0x0000aa98 (most recent call first):
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 331 in wait
+  File "C:\Users\DA Najla\Desktop\system_rd\.venv\Lib\site-packages\docling\pipeline\standard_pdf_pipeline.py", line 216 in get_batch
+  File "C:\Users\DA Najla\Desktop\system_rd\.venv\Lib\site-packages\docling\pipeline\standard_pdf_pipeline.py", line 321 in _run
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 982 in run
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1045 in _bootstrap_inner
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1002 in _bootstrap
+
+Thread 0x000069c0 (most recent call first):
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 331 in wait
+  File "C:\Users\DA Najla\Desktop\system_rd\.venv\Lib\site-packages\docling\pipeline\standard_pdf_pipeline.py", line 216 in get_batch
+  File "C:\Users\DA Najla\Desktop\system_rd\.venv\Lib\site-packages\docling\pipeline\standard_pdf_pipeline.py", line 321 in _run
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 982 in run
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1045 in _bootstrap_inner
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1002 in _bootstrap
+
+Thread 0x00000a80 (most recent call first):
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 331 in wait
+  File "C:\Users\DA Najla\Desktop\system_rd\.venv\Lib\site-packages\docling\pipeline\standard_pdf_pipeline.py", line 216 in get_batch
+  File "C:\Users\DA Najla\Desktop\system_rd\.venv\Lib\site-packages\docling\pipeline\standard_pdf_pipeline.py", line 321 in _run
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 982 in run
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1045 in _bootstrap_inner
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1002 in _bootstrap
+
+Thread 0x0000f3b0 (most recent call first):
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 331 in wait
+  File "C:\Users\DA Najla\Desktop\system_rd\.venv\Lib\site-packages\docling\pipeline\standard_pdf_pipeline.py", line 216 in get_batch
+  File "C:\Users\DA Najla\Desktop\system_rd\.venv\Lib\site-packages\docling\pipeline\standard_pdf_pipeline.py", line 321 in _run
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 982 in run
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1045 in _bootstrap_inner
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1002 in _bootstrap
+
+Thread 0x0000d540 (most recent call first):
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 331 in wait
+  File "C:\Users\DA Najla\Desktop\system_rd\.venv\Lib\site-packages\docling\pipeline\standard_pdf_pipeline.py", line 216 in get_batch
+  File "C:\Users\DA Najla\Desktop\system_rd\.venv\Lib\site-packages\docling\pipeline\standard_pdf_pipeline.py", line 321 in _run
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 982 in run
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1045 in _bootstrap_inner
+  File "C:\Users\DA Najla\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1002 in _bootstrap
+
+Thread 0x000079cc (most recent call first):
+  File "C:\Users\DA Najla\Desktop\system_rd\.venv\Lib\site-packages\numpy\_core\fromnumeric.py", line 86 in _wrapreduction
+  File Windows fatal exception: access violation
+
+PASSED [ 95%]
+tests/test_extraction_accuracy.py::test_unparseable_documents_raise_client_errors[corrupt_docx] PASSED [ 96%]
+tests/test_extraction_accuracy.py::test_encrypted_pdf_reports_password PASSED [ 98%]
+tests/test_extraction_accuracy.py::test_pdf_pages_and_scanned_pages_are_reported PASSED [100%]
+
+- generated xml file: C:\Users\DA Najla\Desktop\system_rd\docs\evidence\milestone1\pytest_junit.xml -
+=========================== short test summary info ===========================
+XFAIL tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[pdf_borderless_table] - Tables without ruling lines may be flattened into body text.
+XFAIL tests/test_extraction_accuracy.py::test_extraction_meets_accuracy_thresholds[pdf_side_by_side_lines] - Short blocks at the same height in two columns are merged into one line.
+======================= 59 passed, 2 xfailed in 21.83s ========================

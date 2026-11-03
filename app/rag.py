@@ -1,14 +1,13 @@
 from __future__ import annotations
 
 import re
-import tempfile
 import uuid
-from pathlib import Path
 from typing import Any
 
 from fastapi import HTTPException
 
 from app.config import Settings
+from app.documents.parser import DocumentParser
 from app.schemas import AskResponse, Citation, SearchResult
 
 
@@ -20,7 +19,7 @@ class RAGService:
         self._dense: Any = None
         self._sparse: Any = None
         self._reranker: Any = None
-        self._converter: Any = None
+        self.parser = DocumentParser()
         self._qdrant: Any = None
 
     @property
@@ -59,14 +58,6 @@ class RAGService:
             self._reranker = CrossEncoder(self.settings.reranker_model)
         return self._reranker
 
-    @property
-    def converter(self) -> Any:
-        if self._converter is None:
-            from docling.document_converter import DocumentConverter
-
-            self._converter = DocumentConverter()
-        return self._converter
-
     def ensure_collection(self) -> None:
         from qdrant_client import models
 
@@ -90,22 +81,6 @@ class RAGService:
             field_schema=models.PayloadSchemaType.KEYWORD,
         )
 
-    def parse_document(self, content: bytes, filename: str) -> str:
-        suffix = Path(filename).suffix or ".bin"
-        temp_path: str | None = None
-        try:
-            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as handle:
-                handle.write(content)
-                temp_path = handle.name
-            result = self.converter.convert(temp_path)
-            text = result.document.export_to_markdown().strip()
-            if not text:
-                raise ValueError("Docling extracted no text")
-            return text
-        finally:
-            if temp_path:
-                Path(temp_path).unlink(missing_ok=True)
-
     def chunk_text(self, text: str) -> list[str]:
         size = self.settings.chunk_size
         overlap = min(self.settings.chunk_overlap, size - 1)
@@ -128,7 +103,7 @@ class RAGService:
         return chunks
 
     def ingest(self, content: bytes, filename: str) -> tuple[str, int]:
-        return self.ingest_text(self.parse_document(content, filename), filename)
+        return self.ingest_text(self.parser.parse(content, filename).text, filename)
 
     def ingest_text(self, text: str, filename: str) -> tuple[str, int]:
         """Index extracted text using the same vectors and payload as documents."""

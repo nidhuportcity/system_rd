@@ -79,7 +79,8 @@ The first request downloads the embedding, reranking, BM25, and Docling model fi
 
 ## Endpoints
 
-- `POST /documents`: multipart upload using field `file`; returns a `document_id`.
+- `POST /documents`: multipart upload using field `file` (PDF, DOCX, TXT or Markdown);
+  returns a `document_id`. See [Document ingestion](#document-ingestion) for error codes.
 - `POST /search`: hybrid dense + BM25 retrieval, RRF fusion, and BGE reranking.
 - `POST /ask`: retrieval plus grounded LLM answer and source passages.
 - `DELETE /documents/{document_id}`: remove every chunk from one upload.
@@ -93,6 +94,62 @@ curl.exe -X POST "http://localhost:8000/ask" -H "Content-Type: application/json"
 ```
 
 Add `document_id` to a `/search` or `/ask` JSON body to scope retrieval to one file.
+
+## Document ingestion
+
+Supported uploads are `.pdf`, `.docx`, `.txt` and `.md`. The extension must match
+the content: a `.pdf` must start with a PDF header, a `.docx` must be a Word
+archive, and text files must not contain binary data.
+
+- PDF, DOCX and Markdown are converted with Docling. Pages without an embedded
+  text layer are read with OCR and logged as a warning.
+- Plain text is decoded directly rather than through Docling, which would treat it
+  as Markdown and escape underscores or turn `#` lines into headings. UTF-8 (with or
+  without BOM) and UTF-16 with BOM are supported; other files fall back to
+  Windows-1252 with a logged warning.
+- All extracted text is Unicode NFC-normalized, line endings become `
+`, and
+  control characters are removed.
+
+| Status | Meaning |
+|---|---|
+| `400` | Empty upload |
+| `413` | Larger than `MAX_DOCUMENT_BYTES` |
+| `415` | Unsupported extension (including legacy `.doc`) or content that does not match it |
+| `422` | Corrupt or password-protected file, or no text could be extracted |
+
+### Extraction accuracy
+
+`evaluation/` generates PDF, DOCX and TXT files with known content and scores
+Docling's output: word recall, word error rate (WER), reading order, page
+attribution, table-cell recall, table detection and OCR page detection.
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.\.venv\Scripts\python.exe -m evaluation.extraction_report
+```
+
+To score real documents, put each file next to a hand-checked transcript named
+`<file>.expected.txt` (for example `manual.pdf.expected.txt`), with paragraphs
+separated by blank lines, then run:
+
+```powershell
+.\.venv\Scripts\python.exe -m evaluation.extraction_report --corpus path	o\docs --json report.json
+```
+
+Known Docling limitations, tracked as expected failures:
+
+- Tables without ruling lines in PDFs are flattened into body text; the cell
+  values are kept but the table structure is lost.
+- Short single-line blocks placed side by side at the same height in two columns
+  are merged into one line. Normal two-column body text is read correctly.
+
+### Tests
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest -m "not integration"   # fast, no models
+.\.venv\Scripts\python.exe -m pytest                         # includes real Docling
+```
 
 ## Configuration
 

@@ -1,0 +1,41 @@
+=== BEFORE code: C:/Users/DANAJL~1/AppData/Local/Temp/m1old
+
+-- Upload status codes for invalid files
+unsupported_extension        expected 415  got 500  Document ingestion failed: Conversion failed for: tmppnaxu3un.pptx with status: failure. E
+no_extension                 expected 415  got 500  Document ingestion failed: Conversion failed for: tmpdku88dae.bin with status: skipped. Er
+legacy_doc                   expected 415  got 500  Document ingestion failed: Conversion failed for: tmpnx936cno.doc with status: failure. Er
+pdf_extension_text_content   expected 415  got 500  Document ingestion failed: Conversion failed for: tmpcqe7rolf.pdf with status: failure. Er
+docx_extension_not_zip       expected 415  got 500  Document ingestion failed: Conversion failed for: tmpdghzlkor.docx with status: failure. E
+docx_zip_without_document    expected 415  got 500  Document ingestion failed: Conversion failed for: tmp4m95n5le.docx with status: failure. E
+txt_with_binary              expected 415  got 500  Document ingestion failed: Conversion failed for: tmpsndafa7u.txt with status: skipped. Er
+whitespace_only_txt          expected 422  got 500  Document ingestion failed: Docling extracted no text
+corrupt_pdf                  expected 422  got 500  Document ingestion failed: Conversion failed for: tmphudxmktu.pdf with status: failure. Er
+encrypted_pdf                expected 422  got 500  Document ingestion failed: Conversion failed for: tmp25x304h7.pdf with status: failure. Er
+blank_pdf                    expected 422  got 500  Document ingestion failed: Docling extracted no text
+corrupt_docx                 expected 422  got 500  Document ingestion failed: Conversion failed for: tmpei515uj9.docx with status: failure. E
+
+-- Text sent to indexing for a plain-text file
+input : 'The column invoice_total maps to field_name in the export.\n\n# this line starts with a hash but is not a heading\n\nMultiply 5 * 3 to get 15 and use a | b as the separator.'
+status: 201
+output: 'The column invoice\\_total maps to field\\_name in the export.\n\n# this line starts with a hash but is not a heading\n\nMultiply 5 * 3 to get 15 and use a | b as the separator.'
+
+=== AFTER code: C:/Users/DA Najla/Desktop/system_rd
+
+-- Upload status codes for invalid files
+unsupported_extension        expected 415  got 415  Unsupported file type '.pptx'. Supported types: .docx, .md, .pdf, .txt.
+no_extension                 expected 415  got 415  Unsupported file type 'none'. Supported types: .docx, .md, .pdf, .txt.
+legacy_doc                   expected 415  got 415  Unsupported file type '.doc'. Supported types: .docx, .md, .pdf, .txt.
+pdf_extension_text_content   expected 415  got 415  The file has a .pdf extension but is not a PDF.
+docx_extension_not_zip       expected 415  got 415  The file has a .docx extension but is not a Word document. Legacy .doc files must be saved
+docx_zip_without_document    expected 415  got 415  The file has a .docx extension but is not a Word document. Legacy .doc files must be saved
+txt_with_binary              expected 415  got 415  The file has a .txt extension but contains binary data.
+whitespace_only_txt          expected 422  got 422  No text could be extracted from the document. If it is a scanned image, check that it is l
+corrupt_pdf                  expected 422  got 422  The PDF file could not be parsed; it may be corrupt.
+encrypted_pdf                expected 422  got 422  The PDF is password-protected; upload an unlocked copy.
+blank_pdf                    expected 422  got 422  No text could be extracted from the document. If it is a scanned image, check that it is l
+corrupt_docx                 expected 422  got 422  The DOCX file could not be parsed; it may be corrupt.
+
+-- Text sent to indexing for a plain-text file
+input : 'The column invoice_total maps to field_name in the export.\n\n# this line starts with a hash but is not a heading\n\nMultiply 5 * 3 to get 15 and use a | b as the separator.'
+status: 201
+output: 'The column invoice_total maps to field_name in the export.\n\n# this line starts with a hash but is not a heading\n\nMultiply 5 * 3 to get 15 and use a | b as the separator.'

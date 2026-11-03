@@ -1,0 +1,18 @@
+Original parser (commit 6d18f0b, RAGService.parse_document) scored on the same corpus
+
+case                      recall     WER   order  note
+txt_simple                 1.000   0.000   1.000
+txt_markdown_chars         0.939   0.121   1.000
+txt_utf8_bom_unicode       1.000   0.000   1.000
+txt_cp1252                 1.000   0.000       -
+txt_utf16                  1.000   0.000   1.000
+docx_headings              1.000   0.000   1.000
+docx_table                 1.000   0.000   1.000
+docx_unicode               1.000   0.000   1.000
+pdf_simple                 1.000   0.000   1.000
+pdf_multipage              1.000   0.000   1.000
+pdf_grid_table             1.000   0.000   1.000
+pdf_borderless_table       1.000   0.000   1.000
+pdf_two_columns            1.000   0.000   1.000
+pdf_side_by_side_lines     1.000   0.476   0.667
+pdf_scanned                1.000   0.000   1.000

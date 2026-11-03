@@ -5,3 +5,6 @@ __pycache__/
 .env
 .env.example
 .venv1/
+
+# Generated 50 MB test file for the upload-limit test
+docs/evidence/milestone1/swagger_test_files/*_oversized.txt

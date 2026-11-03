@@ -1,0 +1,24 @@
+case                    type  status  recall  WER    order  pages  cells  tables  ocr  sec
+txt_simple              txt   PASS    1.000   0.000  1.000  -      -      0       -    0.0
+txt_markdown_chars      txt   PASS    1.000   0.000  1.000  -      -      0       -    0.0
+txt_utf8_bom_unicode    txt   PASS    1.000   0.000  1.000  -      -      0       -    0.0
+txt_cp1252              txt   PASS    1.000   0.000  -      -      -      0       -    0.0
+txt_utf16               txt   PASS    1.000   0.000  1.000  -      -      0       -    0.0
+docx_headings           docx  PASS    1.000   0.000  1.000  -      -      0       -    4.4
+docx_table              docx  PASS    1.000   0.000  1.000  -      1.000  1       -    0.0
+docx_unicode            docx  PASS    1.000   0.000  1.000  -      -      0       -    0.0
+pdf_simple              pdf   PASS    1.000   0.000  1.000  -      -      0       -    5.1
+pdf_multipage           pdf   PASS    1.000   0.000  1.000  1.000  -      0       -    1.6
+pdf_grid_table          pdf   PASS    1.000   0.000  1.000  -      1.000  1       -    1.3
+pdf_borderless_table    pdf   KNOWN   1.000   0.000  1.000  -      1.000  0       -    0.6
+pdf_two_columns         pdf   PASS    1.000   0.000  1.000  -      -      0       -    0.6
+pdf_side_by_side_lines  pdf   KNOWN   1.000   0.476  0.667  -      -      0       -    0.7
+pdf_scanned             pdf   PASS    1.000   0.000  1.000  -      -      0       1    1.2
+
+pdf_borderless_table: found 0 of 1 tables
+pdf_borderless_table: Tables without ruling lines may be flattened into body text.
+pdf_side_by_side_lines: WER 0.476 > 0.05
+pdf_side_by_side_lines: reading order 0.67 < 1.0
+pdf_side_by_side_lines: Short blocks at the same height in two columns are merged into one line.
+
+13 PASS, 2 KNOWN, 0 FAIL, 0 ERROR

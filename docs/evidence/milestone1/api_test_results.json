@@ -1,0 +1,782 @@
+[
+  {
+    "group": "Valid upload",
+    "name": "txt_simple",
+    "filename": "simple.txt",
+    "expected_status": 201,
+    "query": "Quarterly Report",
+    "known_issue": null,
+    "id": "TC01",
+    "upload_name": "TC01_simple.txt",
+    "executed_at": "2026-10-31T13:51:48",
+    "actual_status": 201,
+    "response": {
+      "document_id": "0c1535c0-5358-4c4d-9718-140017065afd",
+      "filename": "TC01_simple.txt",
+      "chunks_indexed": 1
+    },
+    "seconds": 18.43,
+    "search_request": {
+      "query": "Quarterly Report",
+      "limit": 5,
+      "candidate_limit": 30,
+      "document_id": "0c1535c0-5358-4c4d-9718-140017065afd"
+    },
+    "search_status": 200,
+    "search_response": {
+      "results": [
+        {
+          "chunk_id": "0863b71c-7f02-5fea-8c7b-f34e1b81ec9a",
+          "document_id": "0c1535c0-5358-4c4d-9718-140017065afd",
+          "filename": "TC01_simple.txt",
+          "text": "Quarterly Report\n\nRevenue grew by 12 percent in the third quarter while operating costs fell slightly.\n\nThe board approved a hiring plan for forty engineers across two regional offices.",
+          "score": 0.9512010812759399,
+          "chunk_index": 0
+        }
+      ]
+    },
+    "result": "PASS"
+  },
+  {
+    "group": "Valid upload",
+    "name": "txt_markdown_chars",
+    "filename": "markdown_chars.txt",
+    "expected_status": 201,
+    "query": "The column invoice_total maps to field_name",
+    "known_issue": null,
+    "id": "TC02",
+    "upload_name": "TC02_markdown_chars.txt",
+    "executed_at": "2026-10-31T13:51:54",
+    "actual_status": 201,
+    "response": {
+      "document_id": "b15f95e1-426c-49af-9b33-f32260665c54",
+      "filename": "TC02_markdown_chars.txt",
+      "chunks_indexed": 1
+    },
+    "seconds": 0.16,
+    "search_request": {
+      "query": "The column invoice_total maps to field_name",
+      "limit": 5,
+      "candidate_limit": 30,
+      "document_id": "b15f95e1-426c-49af-9b33-f32260665c54"
+    },
+    "search_status": 200,
+    "search_response": {
+      "results": [
+        {
+          "chunk_id": "1d05d430-618e-5078-86b4-e2ea7fb9b071",
+          "document_id": "b15f95e1-426c-49af-9b33-f32260665c54",
+          "filename": "TC02_markdown_chars.txt",
+          "text": "The column invoice_total maps to field_name in the export.\n\n# this line starts with a hash but is not a heading\n\nMultiply 5 * 3 to get 15 and use a | b as the separator.",
+          "score": 0.9850778579711914,
+          "chunk_index": 0
+        }
+      ]
+    },
+    "result": "PASS"
+  },
+  {
+    "group": "Valid upload",
+    "name": "txt_utf8_bom_unicode",
+    "filename": "unicode.txt",
+    "expected_status": 201,
+    "query": "Café owners in Zürich paid the",
+    "known_issue": null,
+    "id": "TC03",
+    "upload_name": "TC03_unicode.txt",
+    "executed_at": "2026-10-31T13:51:55",
+    "actual_status": 201,
+    "response": {
+      "document_id": "a2f2cbbb-40e0-4667-95f2-62df136ace10",
+      "filename": "TC03_unicode.txt",
+      "chunks_indexed": 1
+    },
+    "seconds": 0.14,
+    "search_request": {
+      "query": "Café owners in Zürich paid the",
+      "limit": 5,
+      "candidate_limit": 30,
+      "document_id": "a2f2cbbb-40e0-4667-95f2-62df136ace10"
+    },
+    "search_status": 200,
+    "search_response": {
+      "results": [
+        {
+          "chunk_id": "658f3ceb-235c-57be-9dfe-ee16b2656766",
+          "document_id": "a2f2cbbb-40e0-4667-95f2-62df136ace10",
+          "filename": "TC03_unicode.txt",
+          "text": "Café owners in Zürich paid the naïve fee.\n\nArabic greeting: مرحبا بالعالم\n\nSmart quotes “like these” and an em dash — stay intact.",
+          "score": 0.9029633402824402,
+          "chunk_index": 0
+        }
+      ]
+    },
+    "result": "PASS"
+  },
+  {
+    "group": "Valid upload",
+    "name": "txt_cp1252",
+    "filename": "legacy.txt",
+    "expected_status": 201,
+    "query": "Café owners in Zürich paid the",
+    "known_issue": null,
+    "id": "TC04",
+    "upload_name": "TC04_legacy.txt",
+    "executed_at": "2026-10-31T13:51:55",
+    "actual_status": 201,
+    "response": {
+      "document_id": "dafac312-d502-4910-93a2-24a66b3bd37b",
+      "filename": "TC04_legacy.txt",
+      "chunks_indexed": 1
+    },
+    "seconds": 0.1,
+    "search_request": {
+      "query": "Café owners in Zürich paid the",
+      "limit": 5,
+      "candidate_limit": 30,
+      "document_id": "dafac312-d502-4910-93a2-24a66b3bd37b"
+    },
+    "search_status": 200,
+    "search_response": {
+      "results": [
+        {
+          "chunk_id": "5d948ad1-86cd-5c05-88ad-2c44df9f0ade",
+          "document_id": "dafac312-d502-4910-93a2-24a66b3bd37b",
+          "filename": "TC04_legacy.txt",
+          "text": "Café owners in Zürich paid the naïve fee.",
+          "score": 0.6246100664138794,
+          "chunk_index": 0
+        }
+      ]
+    },
+    "result": "PASS"
+  },
+  {
+    "group": "Valid upload",
+    "name": "txt_utf16",
+    "filename": "utf16.txt",
+    "expected_status": 201,
+    "query": "Café owners in Zürich paid the",
+    "known_issue": null,
+    "id": "TC05",
+    "upload_name": "TC05_utf16.txt",
+    "executed_at": "2026-10-31T13:51:55",
+    "actual_status": 201,
+    "response": {
+      "document_id": "5440a7a2-83e6-4288-a628-d1d66d156196",
+      "filename": "TC05_utf16.txt",
+      "chunks_indexed": 1
+    },
+    "seconds": 0.14,
+    "search_request": {
+      "query": "Café owners in Zürich paid the",
+      "limit": 5,
+      "candidate_limit": 30,
+      "document_id": "5440a7a2-83e6-4288-a628-d1d66d156196"
+    },
+    "search_status": 200,
+    "search_response": {
+      "results": [
+        {
+          "chunk_id": "2b295512-8717-5c48-9274-31e8e4ce4518",
+          "document_id": "5440a7a2-83e6-4288-a628-d1d66d156196",
+          "filename": "TC05_utf16.txt",
+          "text": "Café owners in Zürich paid the naïve fee.\n\nArabic greeting: مرحبا بالعالم\n\nSmart quotes “like these” and an em dash — stay intact.",
+          "score": 0.9029633402824402,
+          "chunk_index": 0
+        }
+      ]
+    },
+    "result": "PASS"
+  },
+  {
+    "group": "Valid upload",
+    "name": "docx_headings",
+    "filename": "manual.docx",
+    "expected_status": 201,
+    "query": "Safety Manual",
+    "known_issue": null,
+    "id": "TC06",
+    "upload_name": "TC06_manual.docx",
+    "executed_at": "2026-10-31T13:51:57",
+    "actual_status": 201,
+    "response": {
+      "document_id": "86be6f15-da95-4084-bfb4-f8a9bc740943",
+      "filename": "TC06_manual.docx",
+      "chunks_indexed": 1
+    },
+    "seconds": 1.37,
+    "search_request": {
+      "query": "Safety Manual",
+      "limit": 5,
+      "candidate_limit": 30,
+      "document_id": "86be6f15-da95-4084-bfb4-f8a9bc740943"
+    },
+    "search_status": 200,
+    "search_response": {
+      "results": [
+        {
+          "chunk_id": "86635073-57d3-549f-a7e7-8ce82e74781f",
+          "document_id": "86be6f15-da95-4084-bfb4-f8a9bc740943",
+          "filename": "TC06_manual.docx",
+          "text": "## Safety Manual\n\nPress the red emergency button to stop the conveyor immediately.\n\nMaintenance staff must inspect the guard rails every Monday morning.",
+          "score": 0.7393019795417786,
+          "chunk_index": 0
+        }
+      ]
+    },
+    "result": "PASS"
+  },
+  {
+    "group": "Valid upload",
+    "name": "docx_table",
+    "filename": "table.docx",
+    "expected_status": 201,
+    "query": "Quarterly Report",
+    "known_issue": null,
+    "id": "TC07",
+    "upload_name": "TC07_table.docx",
+    "executed_at": "2026-10-31T13:51:57",
+    "actual_status": 201,
+    "response": {
+      "document_id": "b6487e1c-397a-4320-bdf4-b31205ac8ee6",
+      "filename": "TC07_table.docx",
+      "chunks_indexed": 1
+    },
+    "seconds": 0.17,
+    "search_request": {
+      "query": "Quarterly Report",
+      "limit": 5,
+      "candidate_limit": 30,
+      "document_id": "b6487e1c-397a-4320-bdf4-b31205ac8ee6"
+    },
+    "search_status": 200,
+    "search_response": {
+      "results": [
+        {
+          "chunk_id": "ebdab385-a416-5efc-a9bd-2bceffecbb0a",
+          "document_id": "b6487e1c-397a-4320-bdf4-b31205ac8ee6",
+          "filename": "TC07_table.docx",
+          "text": "## Quarterly Report\n\nRevenue grew by 12 percent in the third quarter while operating costs fell slightly.\n\n| Region | Sales | Target |\n|----------|---------|----------|\n| North | 120 | 100 |\n| South | 95 | 110 |",
+          "score": 0.7595751285552979,
+          "chunk_index": 0
+        }
+      ]
+    },
+    "result": "PASS"
+  },
+  {
+    "group": "Valid upload",
+    "name": "docx_unicode",
+    "filename": "unicode.docx",
+    "expected_status": 201,
+    "query": "Café owners in Zürich paid the",
+    "known_issue": null,
+    "id": "TC08",
+    "upload_name": "TC08_unicode.docx",
+    "executed_at": "2026-10-31T13:51:58",
+    "actual_status": 201,
+    "response": {
+      "document_id": "685607cd-b233-49e7-b408-68e8efdbc92c",
+      "filename": "TC08_unicode.docx",
+      "chunks_indexed": 1
+    },
+    "seconds": 0.14,
+    "search_request": {
+      "query": "Café owners in Zürich paid the",
+      "limit": 5,
+      "candidate_limit": 30,
+      "document_id": "685607cd-b233-49e7-b408-68e8efdbc92c"
+    },
+    "search_status": 200,
+    "search_response": {
+      "results": [
+        {
+          "chunk_id": "2756d698-c18c-51a8-b3a0-bdb207cde441",
+          "document_id": "685607cd-b233-49e7-b408-68e8efdbc92c",
+          "filename": "TC08_unicode.docx",
+          "text": "## Café owners in Zürich paid the naïve fee.\n\nArabic greeting: مرحبا بالعالم\n\nSmart quotes “like these” and an em dash — stay intact.",
+          "score": 0.9461313486099243,
+          "chunk_index": 0
+        }
+      ]
+    },
+    "result": "PASS"
+  },
+  {
+    "group": "Valid upload",
+    "name": "pdf_simple",
+    "filename": "report.pdf",
+    "expected_status": 201,
+    "query": "Quarterly Report",
+    "known_issue": null,
+    "id": "TC09",
+    "upload_name": "TC09_report.pdf",
+    "executed_at": "2026-10-31T13:52:01",
+    "actual_status": 201,
+    "response": {
+      "document_id": "88e2d892-4b02-40cd-9e40-a52ae666b725",
+      "filename": "TC09_report.pdf",
+      "chunks_indexed": 1
+    },
+    "seconds": 3.04,
+    "search_request": {
+      "query": "Quarterly Report",
+      "limit": 5,
+      "candidate_limit": 30,
+      "document_id": "88e2d892-4b02-40cd-9e40-a52ae666b725"
+    },
+    "search_status": 200,
+    "search_response": {
+      "results": [
+        {
+          "chunk_id": "a9c84d9f-1114-5f41-a7d7-376227ad6ea9",
+          "document_id": "88e2d892-4b02-40cd-9e40-a52ae666b725",
+          "filename": "TC09_report.pdf",
+          "text": "## Quarterly Report\n\nRevenue grew by 12 percent in the third quarter while operating costs fell slightly.\n\nThe board approved a hiring plan for forty engineers across two regional offices.",
+          "score": 0.8958761692047119,
+          "chunk_index": 0
+        }
+      ]
+    },
+    "result": "PASS"
+  },
+  {
+    "group": "Valid upload",
+    "name": "pdf_multipage",
+    "filename": "pages.pdf",
+    "expected_status": 201,
+    "query": "Installation begins by mounting the bracket",
+    "known_issue": null,
+    "id": "TC10",
+    "upload_name": "TC10_pages.pdf",
+    "executed_at": "2026-10-31T13:52:04",
+    "actual_status": 201,
+    "response": {
+      "document_id": "d3d0dc6d-9459-45fa-b4b3-6db3d3aa3b82",
+      "filename": "TC10_pages.pdf",
+      "chunks_indexed": 1
+    },
+    "seconds": 2.83,
+    "search_request": {
+      "query": "Installation begins by mounting the bracket",
+      "limit": 5,
+      "candidate_limit": 30,
+      "document_id": "d3d0dc6d-9459-45fa-b4b3-6db3d3aa3b82"
+    },
+    "search_status": 200,
+    "search_response": {
+      "results": [
+        {
+          "chunk_id": "56ac260b-6604-5465-8721-b387390bf831",
+          "document_id": "d3d0dc6d-9459-45fa-b4b3-6db3d3aa3b82",
+          "filename": "TC10_pages.pdf",
+          "text": "Installation begins by mounting the bracket on a flat wall surface.\n\nConnect the power cable only after the bracket screws are tightened.\n\nTo reset the device hold the power button for ten seconds.",
+          "score": 0.9950113296508789,
+          "chunk_index": 0
+        }
+      ]
+    },
+    "result": "PASS"
+  },
+  {
+    "group": "Valid upload",
+    "name": "pdf_grid_table",
+    "filename": "grid_table.pdf",
+    "expected_status": 201,
+    "query": "Quarterly Report",
+    "known_issue": null,
+    "id": "TC11",
+    "upload_name": "TC11_grid_table.pdf",
+    "executed_at": "2026-10-31T13:52:07",
+    "actual_status": 201,
+    "response": {
+      "document_id": "cbaabbf5-ad58-41d6-812f-24396671ddab",
+      "filename": "TC11_grid_table.pdf",
+      "chunks_indexed": 1
+    },
+    "seconds": 2.28,
+    "search_request": {
+      "query": "Quarterly Report",
+      "limit": 5,
+      "candidate_limit": 30,
+      "document_id": "cbaabbf5-ad58-41d6-812f-24396671ddab"
+    },
+    "search_status": 200,
+    "search_response": {
+      "results": [
+        {
+          "chunk_id": "f4defe43-1259-5e34-a450-fe0e7e6a8e83",
+          "document_id": "cbaabbf5-ad58-41d6-812f-24396671ddab",
+          "filename": "TC11_grid_table.pdf",
+          "text": "## Quarterly Report\n\nRevenue grew by 12 percent in the third quarter while operating costs fell slightly.\n\n| Region | Sales | Target |\n|----------|---------|----------|\n| North | 120 | 100 |\n| South | 95 | 110 |",
+          "score": 0.7595751285552979,
+          "chunk_index": 0
+        }
+      ]
+    },
+    "result": "PASS"
+  },
+  {
+    "group": "Valid upload",
+    "name": "pdf_borderless_table",
+    "filename": "borderless_table.pdf",
+    "expected_status": 201,
+    "query": "Quarterly Report",
+    "known_issue": "Tables without ruling lines may be flattened into body text.",
+    "id": "TC12",
+    "upload_name": "TC12_borderless_table.pdf",
+    "executed_at": "2026-10-31T13:52:08",
+    "actual_status": 201,
+    "response": {
+      "document_id": "baf70f96-e3c5-46ce-a2e6-53499723e4f9",
+      "filename": "TC12_borderless_table.pdf",
+      "chunks_indexed": 1
+    },
+    "seconds": 0.93,
+    "search_request": {
+      "query": "Quarterly Report",
+      "limit": 5,
+      "candidate_limit": 30,
+      "document_id": "baf70f96-e3c5-46ce-a2e6-53499723e4f9"
+    },
+    "search_status": 200,
+    "search_response": {
+      "results": [
+        {
+          "chunk_id": "ae70aa80-e8f3-5e98-9c20-b4b6c205f901",
+          "document_id": "baf70f96-e3c5-46ce-a2e6-53499723e4f9",
+          "filename": "TC12_borderless_table.pdf",
+          "text": "## Quarterly Report\n\nRevenue grew by 12 percent in the third quarter while operating costs fell slightly.\n\nRegion Sales Target North 120 100 South 95 110",
+          "score": 0.8365299701690674,
+          "chunk_index": 0
+        }
+      ]
+    },
+    "result": "PASS"
+  },
+  {
+    "group": "Valid upload",
+    "name": "pdf_two_columns",
+    "filename": "two_columns.pdf",
+    "expected_status": 201,
+    "query": "Press the red emergency button to",
+    "known_issue": null,
+    "id": "TC13",
+    "upload_name": "TC13_two_columns.pdf",
+    "executed_at": "2026-10-31T13:52:09",
+    "actual_status": 201,
+    "response": {
+      "document_id": "5f92ee4a-005d-4f7b-8f85-009834de482b",
+      "filename": "TC13_two_columns.pdf",
+      "chunks_indexed": 1
+    },
+    "seconds": 1.06,
+    "search_request": {
+      "query": "Press the red emergency button to",
+      "limit": 5,
+      "candidate_limit": 30,
+      "document_id": "5f92ee4a-005d-4f7b-8f85-009834de482b"
+    },
+    "search_status": 200,
+    "search_response": {
+      "results": [
+        {
+          "chunk_id": "85ecde32-bd4a-5831-8f27-78e6de3dc4ba",
+          "document_id": "5f92ee4a-005d-4f7b-8f85-009834de482b",
+          "filename": "TC13_two_columns.pdf",
+          "text": "Press the red emergency button to stop the conveyor immediately. The button is located on the left side of the control panel and is clearly marked in red. Operators must be trained before using the conveyor system on any shift.\n\nMaintenance staff must inspect the guard rails every Monday morning and record any damage in the logbook kept beside the main entrance.\n\nInstallation begins by mounting the bracket on a flat wall surface using the four screws supplied in the box.\n\nConnect the power cable only after the bracket screws are tightened. Never connect power while the cover is open, and always check that the fuse rating matches the label on the rear panel of the unit.",
+          "score": 0.9690284729003906,
+          "chunk_index": 0
+        }
+      ]
+    },
+    "result": "PASS"
+  },
+  {
+    "group": "Valid upload",
+    "name": "pdf_side_by_side_lines",
+    "filename": "side_by_side.pdf",
+    "expected_status": 201,
+    "query": "Press the red emergency button to",
+    "known_issue": "Short blocks at the same height in two columns are merged into one line.",
+    "id": "TC14",
+    "upload_name": "TC14_side_by_side.pdf",
+    "executed_at": "2026-10-31T13:52:11",
+    "actual_status": 201,
+    "response": {
+      "document_id": "7b106de4-32f5-404c-a385-55575239fcb3",
+      "filename": "TC14_side_by_side.pdf",
+      "chunks_indexed": 1
+    },
+    "seconds": 0.88,
+    "search_request": {
+      "query": "Press the red emergency button to",
+      "limit": 5,
+      "candidate_limit": 30,
+      "document_id": "7b106de4-32f5-404c-a385-55575239fcb3"
+    },
+    "search_status": 200,
+    "search_response": {
+      "results": [
+        {
+          "chunk_id": "fa398dcf-9aba-541a-b1cd-4580283cb633",
+          "document_id": "7b106de4-32f5-404c-a385-55575239fcb3",
+          "filename": "TC14_side_by_side.pdf",
+          "text": "Press the red emergency button to stop the conveyor immediately. Installation begins by mounting the bracket on a flat wall surface.\n\nMaintenance staff must inspect the guard rails every Monday morning. Connect the power cable only after the bracket screws are tightened.",
+          "score": 0.9860436916351318,
+          "chunk_index": 0
+        }
+      ]
+    },
+    "result": "PASS"
+  },
+  {
+    "group": "Valid upload",
+    "name": "pdf_scanned",
+    "filename": "scanned.pdf",
+    "expected_status": 201,
+    "query": "Invoice number 4471",
+    "known_issue": null,
+    "id": "TC15",
+    "upload_name": "TC15_scanned.pdf",
+    "executed_at": "2026-10-31T13:52:12",
+    "actual_status": 201,
+    "response": {
+      "document_id": "822569cd-f015-4b4a-b279-a1e85c83e6c7",
+      "filename": "TC15_scanned.pdf",
+      "chunks_indexed": 1
+    },
+    "seconds": 1.35,
+    "search_request": {
+      "query": "Invoice number 4471",
+      "limit": 5,
+      "candidate_limit": 30,
+      "document_id": "822569cd-f015-4b4a-b279-a1e85c83e6c7"
+    },
+    "search_status": 200,
+    "search_response": {
+      "results": [
+        {
+          "chunk_id": "ff6f26bc-21dc-53ae-834f-43e0ee418e94",
+          "document_id": "822569cd-f015-4b4a-b279-a1e85c83e6c7",
+          "filename": "TC15_scanned.pdf",
+          "text": "## Invoice number 4471 Total due 250 dollars",
+          "score": 0.9618737697601318,
+          "chunk_index": 0
+        }
+      ]
+    },
+    "result": "PASS"
+  },
+  {
+    "group": "Unsupported or mismatched file",
+    "name": "unsupported_extension",
+    "filename": "slides.pptx",
+    "expected_status": 415,
+    "id": "TC16",
+    "upload_name": "TC16_slides.pptx",
+    "executed_at": "2026-10-31T13:52:12",
+    "actual_status": 415,
+    "response": {
+      "detail": "Unsupported file type '.pptx'. Supported types: .docx, .md, .pdf, .txt."
+    },
+    "seconds": 0.0,
+    "result": "PASS"
+  },
+  {
+    "group": "Unsupported or mismatched file",
+    "name": "no_extension",
+    "filename": "README",
+    "expected_status": 415,
+    "id": "TC17",
+    "upload_name": "TC17_README",
+    "executed_at": "2026-10-31T13:52:12",
+    "actual_status": 415,
+    "response": {
+      "detail": "Unsupported file type 'none'. Supported types: .docx, .md, .pdf, .txt."
+    },
+    "seconds": 0.0,
+    "result": "PASS"
+  },
+  {
+    "group": "Unsupported or mismatched file",
+    "name": "legacy_doc",
+    "filename": "old.doc",
+    "expected_status": 415,
+    "id": "TC18",
+    "upload_name": "TC18_old.doc",
+    "executed_at": "2026-10-31T13:52:12",
+    "actual_status": 415,
+    "response": {
+      "detail": "Unsupported file type '.doc'. Supported types: .docx, .md, .pdf, .txt."
+    },
+    "seconds": 0.0,
+    "result": "PASS"
+  },
+  {
+    "group": "Unsupported or mismatched file",
+    "name": "pdf_extension_text_content",
+    "filename": "fake.pdf",
+    "expected_status": 415,
+    "id": "TC19",
+    "upload_name": "TC19_fake.pdf",
+    "executed_at": "2026-10-31T13:52:12",
+    "actual_status": 415,
+    "response": {
+      "detail": "The file has a .pdf extension but is not a PDF."
+    },
+    "seconds": 0.0,
+    "result": "PASS"
+  },
+  {
+    "group": "Unsupported or mismatched file",
+    "name": "docx_extension_not_zip",
+    "filename": "fake.docx",
+    "expected_status": 415,
+    "id": "TC20",
+    "upload_name": "TC20_fake.docx",
+    "executed_at": "2026-10-31T13:52:12",
+    "actual_status": 415,
+    "response": {
+      "detail": "The file has a .docx extension but is not a Word document. Legacy .doc files must be saved as .docx."
+    },
+    "seconds": 0.0,
+    "result": "PASS"
+  },
+  {
+    "group": "Unsupported or mismatched file",
+    "name": "docx_zip_without_document",
+    "filename": "fake.docx",
+    "expected_status": 415,
+    "id": "TC21",
+    "upload_name": "TC21_fake.docx",
+    "executed_at": "2026-10-31T13:52:12",
+    "actual_status": 415,
+    "response": {
+      "detail": "The file has a .docx extension but is not a Word document. Legacy .doc files must be saved as .docx."
+    },
+    "seconds": 0.0,
+    "result": "PASS"
+  },
+  {
+    "group": "Unsupported or mismatched file",
+    "name": "txt_with_binary",
+    "filename": "binary.txt",
+    "expected_status": 415,
+    "id": "TC22",
+    "upload_name": "TC22_binary.txt",
+    "executed_at": "2026-10-31T13:52:12",
+    "actual_status": 415,
+    "response": {
+      "detail": "The file has a .txt extension but contains binary data."
+    },
+    "seconds": 0.0,
+    "result": "PASS"
+  },
+  {
+    "group": "Unreadable document",
+    "name": "whitespace_only_txt",
+    "filename": "blank.txt",
+    "expected_status": 422,
+    "id": "TC23",
+    "upload_name": "TC23_blank.txt",
+    "executed_at": "2026-10-31T13:52:12",
+    "actual_status": 422,
+    "response": {
+      "detail": "No text could be extracted from the document. If it is a scanned image, check that it is legible."
+    },
+    "seconds": 0.0,
+    "result": "PASS"
+  },
+  {
+    "group": "Unreadable document",
+    "name": "corrupt_pdf",
+    "filename": "corrupt.pdf",
+    "expected_status": 422,
+    "id": "TC24",
+    "upload_name": "TC24_corrupt.pdf",
+    "executed_at": "2026-10-31T13:52:13",
+    "actual_status": 422,
+    "response": {
+      "detail": "The PDF file could not be parsed; it may be corrupt."
+    },
+    "seconds": 0.21,
+    "result": "PASS"
+  },
+  {
+    "group": "Unreadable document",
+    "name": "encrypted_pdf",
+    "filename": "encrypted.pdf",
+    "expected_status": 422,
+    "id": "TC25",
+    "upload_name": "TC25_encrypted.pdf",
+    "executed_at": "2026-10-31T13:52:13",
+    "actual_status": 422,
+    "response": {
+      "detail": "The PDF is password-protected; upload an unlocked copy."
+    },
+    "seconds": 0.19,
+    "result": "PASS"
+  },
+  {
+    "group": "Unreadable document",
+    "name": "blank_pdf",
+    "filename": "blank.pdf",
+    "expected_status": 422,
+    "id": "TC26",
+    "upload_name": "TC26_blank.pdf",
+    "executed_at": "2026-10-31T13:52:14",
+    "actual_status": 422,
+    "response": {
+      "detail": "No text could be extracted from the document. If it is a scanned image, check that it is legible."
+    },
+    "seconds": 0.67,
+    "result": "PASS"
+  },
+  {
+    "group": "Unreadable document",
+    "name": "corrupt_docx",
+    "filename": "corrupt.docx",
+    "expected_status": 422,
+    "id": "TC27",
+    "upload_name": "TC27_corrupt.docx",
+    "executed_at": "2026-10-31T13:52:14",
+    "actual_status": 422,
+    "response": {
+      "detail": "The DOCX file could not be parsed; it may be corrupt."
+    },
+    "seconds": 0.0,
+    "result": "PASS"
+  },
+  {
+    "group": "Size limit",
+    "name": "empty_file",
+    "filename": "empty.txt",
+    "expected_status": 400,
+    "id": "TC28",
+    "upload_name": "TC28_empty.txt",
+    "executed_at": "2026-10-31T13:52:14",
+    "actual_status": 400,
+    "response": {
+      "detail": "The uploaded document is empty."
+    },
+    "seconds": 0.0,
+    "result": "PASS"
+  },
+  {
+    "group": "Size limit",
+    "name": "oversized_file",
+    "filename": "oversized.txt",
+    "expected_status": 413,
+    "id": "TC29",
+    "upload_name": "TC29_oversized.txt",
+    "executed_at": "2026-10-31T13:52:14",
+    "actual_status": 413,
+    "response": {
+      "detail": "The document exceeds the upload limit."
+    },
+    "seconds": 0.14,
+    "result": "PASS"
+  }
+]

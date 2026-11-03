@@ -15,9 +15,12 @@ from pydantic import BaseModel, Field
 from starlette.concurrency import run_in_threadpool
 
 from app.config import get_settings
+from app.documents.parser import DocumentError
 from app.structured.router import router as structured_router
 from app.rag import RAGService
-from app.schemas import AskRequest, AskResponse, DeleteResponse, IngestResponse, SearchRequest, SearchResponse
+from app.schemas import (
+    AskRequest, AskResponse, DeleteResponse, ErrorResponse, IngestResponse, SearchRequest, SearchResponse,
+)
 
 ALLOWED_CONTENT_TYPES = {
     "image/jpeg",
@@ -133,7 +136,18 @@ def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
-@app.post("/documents", response_model=IngestResponse, status_code=status.HTTP_201_CREATED)
+DOCUMENT_UPLOAD_ERRORS: dict[int | str, dict[str, Any]] = {
+    400: {"model": ErrorResponse, "description": "The uploaded document is empty."},
+    413: {"model": ErrorResponse, "description": "The document exceeds MAX_DOCUMENT_BYTES."},
+    415: {"model": ErrorResponse, "description": "Unsupported file type, or content that does not match the extension."},
+    422: {"model": ErrorResponse, "description": "Corrupt or password-protected document, or no text could be extracted."},
+}
+
+
+@app.post(
+    "/documents", response_model=IngestResponse, status_code=status.HTTP_201_CREATED,
+    responses=DOCUMENT_UPLOAD_ERRORS,
+)
 async def ingest_document(file: UploadFile = File(...)) -> IngestResponse:
     settings = get_settings()
     content = await file.read(settings.max_document_bytes + 1)
@@ -145,6 +159,8 @@ async def ingest_document(file: UploadFile = File(...)) -> IngestResponse:
         raise HTTPException(status_code=413, detail="The document exceeds the upload limit.")
     try:
         document_id, count = await run_in_threadpool(get_rag_service().ingest, content, filename)
+    except DocumentError as exc:
+        raise HTTPException(status_code=exc.status_code, detail=str(exc)) from exc
     except HTTPException:
         raise
     except Exception as exc:

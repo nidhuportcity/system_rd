@@ -1,0 +1,279 @@
+[
+  {
+    "name": "txt_simple",
+    "file_type": "txt",
+    "status": "PASS",
+    "seconds": 9.869999485090375e-05,
+    "page_count": null,
+    "tables_found": 0,
+    "scanned_pages": [],
+    "scores": {
+      "word_recall": 1.0,
+      "word_error_rate": 0.0,
+      "reading_order": 1.0,
+      "page_accuracy": null,
+      "table_cell_recall": null
+    },
+    "failures": [],
+    "note": null
+  },
+  {
+    "name": "txt_markdown_chars",
+    "file_type": "txt",
+    "status": "PASS",
+    "seconds": 1.550000160932541e-05,
+    "page_count": null,
+    "tables_found": 0,
+    "scanned_pages": [],
+    "scores": {
+      "word_recall": 1.0,
+      "word_error_rate": 0.0,
+      "reading_order": 1.0,
+      "page_accuracy": null,
+      "table_cell_recall": null
+    },
+    "failures": [],
+    "note": null
+  },
+  {
+    "name": "txt_utf8_bom_unicode",
+    "file_type": "txt",
+    "status": "PASS",
+    "seconds": 0.0006932999822311103,
+    "page_count": null,
+    "tables_found": 0,
+    "scanned_pages": [],
+    "scores": {
+      "word_recall": 1.0,
+      "word_error_rate": 0.0,
+      "reading_order": 1.0,
+      "page_accuracy": null,
+      "table_cell_recall": null
+    },
+    "failures": [],
+    "note": null
+  },
+  {
+    "name": "txt_cp1252",
+    "file_type": "txt",
+    "status": "PASS",
+    "seconds": 8.980004349723458e-05,
+    "page_count": null,
+    "tables_found": 0,
+    "scanned_pages": [],
+    "scores": {
+      "word_recall": 1.0,
+      "word_error_rate": 0.0,
+      "reading_order": null,
+      "page_accuracy": null,
+      "table_cell_recall": null
+    },
+    "failures": [],
+    "note": null
+  },
+  {
+    "name": "txt_utf16",
+    "file_type": "txt",
+    "status": "PASS",
+    "seconds": 1.5400000847876072e-05,
+    "page_count": null,
+    "tables_found": 0,
+    "scanned_pages": [],
+    "scores": {
+      "word_recall": 1.0,
+      "word_error_rate": 0.0,
+      "reading_order": 1.0,
+      "page_accuracy": null,
+      "table_cell_recall": null
+    },
+    "failures": [],
+    "note": null
+  },
+  {
+    "name": "docx_headings",
+    "file_type": "docx",
+    "status": "PASS",
+    "seconds": 4.352908100001514,
+    "page_count": null,
+    "tables_found": 0,
+    "scanned_pages": [],
+    "scores": {
+      "word_recall": 1.0,
+      "word_error_rate": 0.0,
+      "reading_order": 1.0,
+      "page_accuracy": null,
+      "table_cell_recall": null
+    },
+    "failures": [],
+    "note": null
+  },
+  {
+    "name": "docx_table",
+    "file_type": "docx",
+    "status": "PASS",
+    "seconds": 0.012560900009702891,
+    "page_count": null,
+    "tables_found": 1,
+    "scanned_pages": [],
+    "scores": {
+      "word_recall": 1.0,
+      "word_error_rate": 0.0,
+      "reading_order": 1.0,
+      "page_accuracy": null,
+      "table_cell_recall": 1.0
+    },
+    "failures": [],
+    "note": null
+  },
+  {
+    "name": "docx_unicode",
+    "file_type": "docx",
+    "status": "PASS",
+    "seconds": 0.010337800020352006,
+    "page_count": null,
+    "tables_found": 0,
+    "scanned_pages": [],
+    "scores": {
+      "word_recall": 1.0,
+      "word_error_rate": 0.0,
+      "reading_order": 1.0,
+      "page_accuracy": null,
+      "table_cell_recall": null
+    },
+    "failures": [],
+    "note": null
+  },
+  {
+    "name": "pdf_simple",
+    "file_type": "pdf",
+    "status": "PASS",
+    "seconds": 5.14919840003131,
+    "page_count": 1,
+    "tables_found": 0,
+    "scanned_pages": [],
+    "scores": {
+      "word_recall": 1.0,
+      "word_error_rate": 0.0,
+      "reading_order": 1.0,
+      "page_accuracy": null,
+      "table_cell_recall": null
+    },
+    "failures": [],
+    "note": null
+  },
+  {
+    "name": "pdf_multipage",
+    "file_type": "pdf",
+    "status": "PASS",
+    "seconds": 1.6465892999549396,
+    "page_count": 3,
+    "tables_found": 0,
+    "scanned_pages": [],
+    "scores": {
+      "word_recall": 1.0,
+      "word_error_rate": 0.0,
+      "reading_order": 1.0,
+      "page_accuracy": 1.0,
+      "table_cell_recall": null
+    },
+    "failures": [],
+    "note": null
+  },
+  {
+    "name": "pdf_grid_table",
+    "file_type": "pdf",
+    "status": "PASS",
+    "seconds": 1.29178959998535,
+    "page_count": 1,
+    "tables_found": 1,
+    "scanned_pages": [],
+    "scores": {
+      "word_recall": 1.0,
+      "word_error_rate": 0.0,
+      "reading_order": 1.0,
+      "page_accuracy": null,
+      "table_cell_recall": 1.0
+    },
+    "failures": [],
+    "note": null
+  },
+  {
+    "name": "pdf_borderless_table",
+    "file_type": "pdf",
+    "status": "KNOWN",
+    "seconds": 0.6337082000100054,
+    "page_count": 1,
+    "tables_found": 0,
+    "scanned_pages": [],
+    "scores": {
+      "word_recall": 1.0,
+      "word_error_rate": 0.0,
+      "reading_order": 1.0,
+      "page_accuracy": null,
+      "table_cell_recall": 1.0
+    },
+    "failures": [
+      "found 0 of 1 tables"
+    ],
+    "note": "Tables without ruling lines may be flattened into body text."
+  },
+  {
+    "name": "pdf_two_columns",
+    "file_type": "pdf",
+    "status": "PASS",
+    "seconds": 0.6331342000048608,
+    "page_count": 1,
+    "tables_found": 0,
+    "scanned_pages": [],
+    "scores": {
+      "word_recall": 1.0,
+      "word_error_rate": 0.0,
+      "reading_order": 1.0,
+      "page_accuracy": null,
+      "table_cell_recall": null
+    },
+    "failures": [],
+    "note": null
+  },
+  {
+    "name": "pdf_side_by_side_lines",
+    "file_type": "pdf",
+    "status": "KNOWN",
+    "seconds": 0.6615107999532484,
+    "page_count": 1,
+    "tables_found": 0,
+    "scanned_pages": [],
+    "scores": {
+      "word_recall": 1.0,
+      "word_error_rate": 0.47619047619047616,
+      "reading_order": 0.6666666666666666,
+      "page_accuracy": null,
+      "table_cell_recall": null
+    },
+    "failures": [
+      "WER 0.476 > 0.05",
+      "reading order 0.67 < 1.0"
+    ],
+    "note": "Short blocks at the same height in two columns are merged into one line."
+  },
+  {
+    "name": "pdf_scanned",
+    "file_type": "pdf",
+    "status": "PASS",
+    "seconds": 1.1637208000174724,
+    "page_count": 1,
+    "tables_found": 0,
+    "scanned_pages": [
+      1
+    ],
+    "scores": {
+      "word_recall": 1.0,
+      "word_error_rate": 0.0,
+      "reading_order": 1.0,
+      "page_accuracy": null,
+      "table_cell_recall": null
+    },
+    "failures": [],
+    "note": null
+  }
+]

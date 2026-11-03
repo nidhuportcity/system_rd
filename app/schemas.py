@@ -69,3 +69,7 @@ class AskResponse(BaseModel):
 class DeleteResponse(BaseModel):
     document_id: str
     deleted: bool
+
+
+class ErrorResponse(BaseModel):
+    detail: str

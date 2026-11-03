@@ -1,0 +1,264 @@
+[
+  {
+    "group": "Valid upload",
+    "name": "txt_simple",
+    "filename": "simple.txt",
+    "expected_status": 201,
+    "query": "Quarterly Report",
+    "known_issue": null,
+    "id": "TC01",
+    "upload_name": "TC01_simple.txt"
+  },
+  {
+    "group": "Valid upload",
+    "name": "txt_markdown_chars",
+    "filename": "markdown_chars.txt",
+    "expected_status": 201,
+    "query": "The column invoice_total maps to field_name",
+    "known_issue": null,
+    "id": "TC02",
+    "upload_name": "TC02_markdown_chars.txt"
+  },
+  {
+    "group": "Valid upload",
+    "name": "txt_utf8_bom_unicode",
+    "filename": "unicode.txt",
+    "expected_status": 201,
+    "query": "Caf\u00e9 owners in Z\u00fcrich paid the",
+    "known_issue": null,
+    "id": "TC03",
+    "upload_name": "TC03_unicode.txt"
+  },
+  {
+    "group": "Valid upload",
+    "name": "txt_cp1252",
+    "filename": "legacy.txt",
+    "expected_status": 201,
+    "query": "Caf\u00e9 owners in Z\u00fcrich paid the",
+    "known_issue": null,
+    "id": "TC04",
+    "upload_name": "TC04_legacy.txt"
+  },
+  {
+    "group": "Valid upload",
+    "name": "txt_utf16",
+    "filename": "utf16.txt",
+    "expected_status": 201,
+    "query": "Caf\u00e9 owners in Z\u00fcrich paid the",
+    "known_issue": null,
+    "id": "TC05",
+    "upload_name": "TC05_utf16.txt"
+  },
+  {
+    "group": "Valid upload",
+    "name": "docx_headings",
+    "filename": "manual.docx",
+    "expected_status": 201,
+    "query": "Safety Manual",
+    "known_issue": null,
+    "id": "TC06",
+    "upload_name": "TC06_manual.docx"
+  },
+  {
+    "group": "Valid upload",
+    "name": "docx_table",
+    "filename": "table.docx",
+    "expected_status": 201,
+    "query": "Quarterly Report",
+    "known_issue": null,
+    "id": "TC07",
+    "upload_name": "TC07_table.docx"
+  },
+  {
+    "group": "Valid upload",
+    "name": "docx_unicode",
+    "filename": "unicode.docx",
+    "expected_status": 201,
+    "query": "Caf\u00e9 owners in Z\u00fcrich paid the",
+    "known_issue": null,
+    "id": "TC08",
+    "upload_name": "TC08_unicode.docx"
+  },
+  {
+    "group": "Valid upload",
+    "name": "pdf_simple",
+    "filename": "report.pdf",
+    "expected_status": 201,
+    "query": "Quarterly Report",
+    "known_issue": null,
+    "id": "TC09",
+    "upload_name": "TC09_report.pdf"
+  },
+  {
+    "group": "Valid upload",
+    "name": "pdf_multipage",
+    "filename": "pages.pdf",
+    "expected_status": 201,
+    "query": "Installation begins by mounting the bracket",
+    "known_issue": null,
+    "id": "TC10",
+    "upload_name": "TC10_pages.pdf"
+  },
+  {
+    "group": "Valid upload",
+    "name": "pdf_grid_table",
+    "filename": "grid_table.pdf",
+    "expected_status": 201,
+    "query": "Quarterly Report",
+    "known_issue": null,
+    "id": "TC11",
+    "upload_name": "TC11_grid_table.pdf"
+  },
+  {
+    "group": "Valid upload",
+    "name": "pdf_borderless_table",
+    "filename": "borderless_table.pdf",
+    "expected_status": 201,
+    "query": "Quarterly Report",
+    "known_issue": "Tables without ruling lines may be flattened into body text.",
+    "id": "TC12",
+    "upload_name": "TC12_borderless_table.pdf"
+  },
+  {
+    "group": "Valid upload",
+    "name": "pdf_two_columns",
+    "filename": "two_columns.pdf",
+    "expected_status": 201,
+    "query": "Press the red emergency button to",
+    "known_issue": null,
+    "id": "TC13",
+    "upload_name": "TC13_two_columns.pdf"
+  },
+  {
+    "group": "Valid upload",
+    "name": "pdf_side_by_side_lines",
+    "filename": "side_by_side.pdf",
+    "expected_status": 201,
+    "query": "Press the red emergency button to",
+    "known_issue": "Short blocks at the same height in two columns are merged into one line.",
+    "id": "TC14",
+    "upload_name": "TC14_side_by_side.pdf"
+  },
+  {
+    "group": "Valid upload",
+    "name": "pdf_scanned",
+    "filename": "scanned.pdf",
+    "expected_status": 201,
+    "query": "Invoice number 4471",
+    "known_issue": null,
+    "id": "TC15",
+    "upload_name": "TC15_scanned.pdf"
+  },
+  {
+    "group": "Unsupported or mismatched file",
+    "name": "unsupported_extension",
+    "filename": "slides.pptx",
+    "expected_status": 415,
+    "id": "TC16",
+    "upload_name": "TC16_slides.pptx"
+  },
+  {
+    "group": "Unsupported or mismatched file",
+    "name": "no_extension",
+    "filename": "README",
+    "expected_status": 415,
+    "id": "TC17",
+    "upload_name": "TC17_README"
+  },
+  {
+    "group": "Unsupported or mismatched file",
+    "name": "legacy_doc",
+    "filename": "old.doc",
+    "expected_status": 415,
+    "id": "TC18",
+    "upload_name": "TC18_old.doc"
+  },
+  {
+    "group": "Unsupported or mismatched file",
+    "name": "pdf_extension_text_content",
+    "filename": "fake.pdf",
+    "expected_status": 415,
+    "id": "TC19",
+    "upload_name": "TC19_fake.pdf"
+  },
+  {
+    "group": "Unsupported or mismatched file",
+    "name": "docx_extension_not_zip",
+    "filename": "fake.docx",
+    "expected_status": 415,
+    "id": "TC20",
+    "upload_name": "TC20_fake.docx"
+  },
+  {
+    "group": "Unsupported or mismatched file",
+    "name": "docx_zip_without_document",
+    "filename": "fake.docx",
+    "expected_status": 415,
+    "id": "TC21",
+    "upload_name": "TC21_fake.docx"
+  },
+  {
+    "group": "Unsupported or mismatched file",
+    "name": "txt_with_binary",
+    "filename": "binary.txt",
+    "expected_status": 415,
+    "id": "TC22",
+    "upload_name": "TC22_binary.txt"
+  },
+  {
+    "group": "Unreadable document",
+    "name": "whitespace_only_txt",
+    "filename": "blank.txt",
+    "expected_status": 422,
+    "id": "TC23",
+    "upload_name": "TC23_blank.txt"
+  },
+  {
+    "group": "Unreadable document",
+    "name": "corrupt_pdf",
+    "filename": "corrupt.pdf",
+    "expected_status": 422,
+    "id": "TC24",
+    "upload_name": "TC24_corrupt.pdf"
+  },
+  {
+    "group": "Unreadable document",
+    "name": "encrypted_pdf",
+    "filename": "encrypted.pdf",
+    "expected_status": 422,
+    "id": "TC25",
+    "upload_name": "TC25_encrypted.pdf"
+  },
+  {
+    "group": "Unreadable document",
+    "name": "blank_pdf",
+    "filename": "blank.pdf",
+    "expected_status": 422,
+    "id": "TC26",
+    "upload_name": "TC26_blank.pdf"
+  },
+  {
+    "group": "Unreadable document",
+    "name": "corrupt_docx",
+    "filename": "corrupt.docx",
+    "expected_status": 422,
+    "id": "TC27",
+    "upload_name": "TC27_corrupt.docx"
+  },
+  {
+    "group": "Size limit",
+    "name": "empty_file",
+    "filename": "empty.txt",
+    "expected_status": 400,
+    "id": "TC28",
+    "upload_name": "TC28_empty.txt"
+  },
+  {
+    "group": "Size limit",
+    "name": "oversized_file",
+    "filename": "oversized.txt",
+    "expected_status": 413,
+    "id": "TC29",
+    "upload_name": "TC29_oversized.txt"
+  }
+]
